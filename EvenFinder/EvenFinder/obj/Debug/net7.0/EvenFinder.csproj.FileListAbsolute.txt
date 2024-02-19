@@ -256,3 +256,5 @@ C:\Users\ömer\OneDrive\Masaüstü\GİTHUB\EventFinder\EvenFinder\EvenFinder\bin
 C:\Users\ömer\OneDrive\Masaüstü\GİTHUB\EventFinder\EvenFinder\EvenFinder\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll
 C:\Users\ömer\OneDrive\Masaüstü\GİTHUB\EventFinder\EvenFinder\EvenFinder\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\ömer\OneDrive\Masaüstü\GİTHUB\EventFinder\EvenFinder\EvenFinder\bin\Debug\net7.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
+C:\Users\ömer\OneDrive\Masaüstü\GİTHUB\EventFinder\EvenFinder\EvenFinder\bin\Debug\net7.0\package-lock.json
+C:\Users\ömer\OneDrive\Masaüstü\GİTHUB\EventFinder\EvenFinder\EvenFinder\bin\Debug\net7.0\package.json

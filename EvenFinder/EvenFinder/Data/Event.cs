@@ -10,7 +10,10 @@ namespace EvenFinder.Data
         public string? Description { get; set; }
         public string? EventLocation { get; set; }
         public string? EventImage { get; set; }
-        public int RegisterCount { get; set; }
+        public DateTime EventDate { get; set; }
+        public bool IsActive { get; set; }
+        public List<Comment> Comments { get; set; } = new List<Comment>();
+
 
     }
 }

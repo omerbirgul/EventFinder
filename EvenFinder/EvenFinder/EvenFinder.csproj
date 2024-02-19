@@ -17,6 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Data2\Abstract\" />
     <Folder Include="Views\Blog\" />
   </ItemGroup>
 

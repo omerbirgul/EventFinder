@@ -1,4 +1,5 @@
 using EvenFinder.Data;
+using EvenFinder.Data2.Concrate.EfCore;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +15,8 @@ builder.Services.AddDbContext<DataContext>(options =>
 });
 
 var app = builder.Build();
+
+SeedData.TestVerileriniDoldur(app);
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

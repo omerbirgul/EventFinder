@@ -17,6 +17,33 @@ namespace EvenFinder.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "7.0.0");
 
+            modelBuilder.Entity("EvenFinder.Data.Comment", b =>
+                {
+                    b.Property<int>("CommentId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("EventId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("PublishedOn")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Text")
+                        .HasColumnType("TEXT");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("INTEGER");
+
+                    b.HasKey("CommentId");
+
+                    b.HasIndex("EventId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Comments");
+                });
+
             modelBuilder.Entity("EvenFinder.Data.Event", b =>
                 {
                     b.Property<int>("EventId")
@@ -24,6 +51,9 @@ namespace EvenFinder.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("Description")
+                        .HasColumnType("TEXT");
+
+                    b.Property<DateTime>("EventDate")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("EventImage")
@@ -35,10 +65,15 @@ namespace EvenFinder.Migrations
                     b.Property<string>("EventName")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("RegisterCount")
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("UserId")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("EventId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Events");
                 });
@@ -84,6 +119,44 @@ namespace EvenFinder.Migrations
                     b.HasKey("UserId");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("EvenFinder.Data.Comment", b =>
+                {
+                    b.HasOne("EvenFinder.Data.Event", "Event")
+                        .WithMany("Comments")
+                        .HasForeignKey("EventId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EvenFinder.Data.User", "User")
+                        .WithMany("Comments")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Event");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("EvenFinder.Data.Event", b =>
+                {
+                    b.HasOne("EvenFinder.Data.User", null)
+                        .WithMany("Events")
+                        .HasForeignKey("UserId");
+                });
+
+            modelBuilder.Entity("EvenFinder.Data.Event", b =>
+                {
+                    b.Navigation("Comments");
+                });
+
+            modelBuilder.Entity("EvenFinder.Data.User", b =>
+                {
+                    b.Navigation("Comments");
+
+                    b.Navigation("Events");
                 });
 #pragma warning restore 612, 618
         }
