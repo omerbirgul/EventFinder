@@ -1,8 +1,13 @@
-﻿<div class="card">
-    <img class="card-img-top"  src="https://marketplace.canva.com/EADybOIa4oA/1/0/1131w/canva-mavi-ve-k%C4%B1rm%C4%B1z%C4%B1-sa%C4%9Fl%C4%B1k-simgeleri-t%C4%B1p-konferans%C4%B1-afi%C5%9F-NdKc9qwGEd4.jpg" alt="Card image cap">
-    <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        <a asp-controller="Event" asp-action="Index" class="btn btn-primary">Go somewhere</a>
+﻿@model Event
+
+
+<div  class="col-md-3">
+    <div  class="card h-100">
+        <img class="card-img-top" style="width:100%; height:100%;" src="@Model.EventImage" alt="Card image cap">
+        <div class="card-body">
+            <h5 style="display:inline" class="card-title">@Model.EventName (@Model.EventLocation)</h5>
+            <p class="card-text">@Model.Description</p>
+            <a asp-controller="Event" asp-action="Index" class="btn btn-primary">Detaylar ve Başvuru</a>
+        </div>
     </div>
 </div>
