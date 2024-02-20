@@ -1,4 +1,6 @@
 using EvenFinder.Data;
+using EvenFinder.Data2.Abstract;
+using EvenFinder.Data2.Concrate;
 using EvenFinder.Data2.Concrate.EfCore;
 using Microsoft.EntityFrameworkCore;
 
@@ -13,6 +15,8 @@ builder.Services.AddDbContext<DataContext>(options =>
     var connectionString = config.GetConnectionString("database");
     options.UseSqlite(connectionString);
 });
+
+builder.Services.AddScoped<IEventRepository, EfEventRepository>();
 
 var app = builder.Build();
 
