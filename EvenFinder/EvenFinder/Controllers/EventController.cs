@@ -9,12 +9,12 @@ namespace EvenFinder.Controllers
     public class EventController : Controller
     {
 
-
+        private readonly ICommentRepository _commentRepository;
         private readonly IEventRepository _eventRepository;
-        public EventController(IEventRepository eventRepository)
+        public EventController(IEventRepository eventRepository, ICommentRepository commentRepository)
         {
             _eventRepository = eventRepository;
-
+            _commentRepository = commentRepository;
         }
 
 
@@ -61,7 +61,18 @@ namespace EvenFinder.Controllers
         }
 
 
-
+        public IActionResult CreateComment(int EventId, string UserName, string Text)
+        {
+            var entity = new Comment
+            {
+                Text = Text,
+                PublishedOn = DateTime.Now,
+                EventId = EventId,
+                User = new User { UserName = UserName }
+            };
+            _commentRepository.CreateComment(entity);
+            return View();
+        }
     }
 }
 
