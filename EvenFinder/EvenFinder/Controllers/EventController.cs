@@ -9,12 +9,12 @@ namespace EvenFinder.Controllers
     public class EventController : Controller
     {
 
+
         private readonly IEventRepository _eventRepository;
-        private readonly DataContext _context;
-        public EventController(IEventRepository eventRepository, DataContext context)
+        public EventController(IEventRepository eventRepository)
         {
             _eventRepository = eventRepository;
-            _context = context;
+
         }
 
 
@@ -59,6 +59,9 @@ namespace EvenFinder.Controllers
         {
             return View(await _eventRepository.Events.FirstOrDefaultAsync(e => e.EventId == id));
         }
+
+
+
     }
 }
 

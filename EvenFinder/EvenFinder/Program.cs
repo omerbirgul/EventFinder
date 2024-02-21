@@ -16,7 +16,13 @@ builder.Services.AddDbContext<DataContext>(options =>
     options.UseSqlite(connectionString);
 });
 
+
+
+// Abstact ve Concrete ekliyoruz! ÇOK ÖNEMLÝ!!!!
 builder.Services.AddScoped<IEventRepository, EfEventRepository>();
+builder.Services.AddScoped<ICommentRepository, EfCommentRepository>();
+
+//************************************************
 
 var app = builder.Build();
 
