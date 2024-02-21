@@ -1,6 +1,6 @@
 ﻿@model Event
 
-<div class="row">
+<div class="row mt-3">
     <div class="col-lg-8">
         <div class="bg-white p-4">
             <h1 class="h4 mb-4">@Model.EventName</h1>
@@ -15,8 +15,8 @@
             <div class="card border-0">
                 <div class="card-header">
                     <h4 class="mr-3" style="display:inline-block" >yorum sayısı</h4> 
-                    <a style="display:inline-block" class="btn btn-outline-success" asp-controller="Comment">Add comment</a>
                 </div>
+                <br />
                 <div class="card-body">
                     <div class="my-4 d-flex">
                         <img style="width:60px" class="avatar rounded-circle float-start me-3" src="https://i.tmgrup.com.tr/gq/original/17-06/22/user_male_circle_filled1600.png" />-
@@ -28,7 +28,28 @@
                             <p>yapılan yorum</p>
                         </div>
                     </div>
-                </div>
+
+
+                    <hr class="my-4" />
+                    <div>
+                        <h4>Yorum ekle</h4>
+                        <form asp-controller="Comment" asp-action="Create" method="post">
+                            <input type="hidden" name="EventId" value="@Model.EventId" />
+                            <div class="col-md-12">
+                                <label for="UserName" class="form-label">UserName</label>
+                                <input type="text" name="UserName" id="UserName" class="form-control" />
+                            </div>
+
+                            <div class="col-md-12">
+                                <label for="Text" class="form-label">Yorum</label>
+                                <textarea type="text" name="Text" id="Text" class="form-control" rows="3"> </textarea>
+                            </div>
+
+                            <div class="col-md-12 mt-3">
+                                <button type="submit" class="btn btn-outline-success">Kaydet</button>
+                            </div>
+                        </form>
+                    </div>
             </div>
         </div>
     </div>
