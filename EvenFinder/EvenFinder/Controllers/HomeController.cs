@@ -1,21 +1,25 @@
-﻿using EvenFinder.Models;
+﻿using EvenFinder.Data;
+using EvenFinder.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
 
 namespace EvenFinder.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly DataContext _context;
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, DataContext context)
         {
             _logger = logger;
+            _context = context;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            return View(await _context.Events.ToListAsync());
         }
 
         public IActionResult Privacy()

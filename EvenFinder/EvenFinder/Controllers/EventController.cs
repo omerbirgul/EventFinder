@@ -9,22 +9,18 @@ namespace EvenFinder.Controllers
     public class EventController : Controller
     {
 
-        private readonly IEventRepository _repository;
-        public EventController(IEventRepository repository)
+        private readonly IEventRepository _eventRepository;
+        private readonly DataContext _context;
+        public EventController(IEventRepository eventRepository, DataContext context)
         {
-            _repository = repository;
+            _eventRepository = eventRepository;
+            _context = context;
         }
 
 
-        //private readonly DataContext _context;
-        //public EventController(DataContext context)
-        //{
-        //    _context = context;
-        //}
-
-        public IActionResult List()
+        public IActionResult Index()
         {
-            return View(_repository.Events.ToList());
+            return View(_eventRepository.Events.ToList());
         }
 
         public IActionResult Create() 
@@ -33,18 +29,36 @@ namespace EvenFinder.Controllers
         }
 
 
-        //[HttpPost]
-        //public async Task<IActionResult> Create(Event model)
-        //{
-        //    _context.Events.Add(model);
-        //    await _context.SaveChangesAsync();
-        //    return RedirectToAction("Index","Home");
-        //}
+        [HttpPost]
+        public IActionResult Create(Event model)
+        {
+            //_context.Events.Add(model);
+            //await _context.SaveChangesAsync();
+            _eventRepository.CreateEvent(
+                new Event
+                {
+                    EventName = model.EventName,
+                    Description = model.Description,
+                    EventLocation = model.EventLocation,
+                    EventImage = model.EventImage,
+                    EventDate = model.EventDate,
+                    IsActive = model.IsActive,
+                }
+                );
+            return RedirectToAction("Index", "Home");
+        }
 
-        //public async Task<IActionResult> List()
-        //{
-        //    return View(await _context.Events.ToListAsync());
-        //}
+        public IActionResult List()
+        {
+            //return View(await _context.Events.ToListAsync());
+            return View(_eventRepository.Events.ToList());
+        }
+
+
+        public async Task<IActionResult> Details(int? id)
+        {
+            return View(await _eventRepository.Events.FirstOrDefaultAsync(e => e.EventId == id));
+        }
     }
 }
 

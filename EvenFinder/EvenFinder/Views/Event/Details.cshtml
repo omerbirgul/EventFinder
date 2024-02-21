@@ -1,0 +1,38 @@
+﻿@model Event
+
+<div class="row">
+    <div class="col-lg-8">
+        <div class="bg-white p-4">
+            <h1 class="h4 mb-4">@Model.EventName</h1>
+            <img style="width:400px" class="img-fluid rounded" src="@Model.EventImage" />
+            <div>
+                <p>@Model.Description</p>
+                <p>@Model.EventLocation</p>
+            </div>
+        </div>
+
+        <div class="bg-white mt-3">
+            <div class="card border-0">
+                <div class="card-header">
+                    <h4 class="mr-3" style="display:inline-block" >yorum sayısı</h4> 
+                    <a style="display:inline-block" class="btn btn-outline-success" asp-controller="Comment">Add comment</a>
+                </div>
+                <div class="card-body">
+                    <div class="my-4 d-flex">
+                        <img style="width:60px" class="avatar rounded-circle float-start me-3" src="https://i.tmgrup.com.tr/gq/original/17-06/22/user_male_circle_filled1600.png" />-
+                        <div>
+                            <div class="mb-2">
+                                <h6> yorum yapan kullanıcı adı</h6>
+                                <span>yorum tarihi</span>
+                            </div>
+                            <p>yapılan yorum</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-4">
+
+    </div>
+</div>

@@ -1,0 +1,25 @@
+﻿@* 
+
+<form asp-controller="Comment" asp-action="Create" method="post">
+    <div class="mb-3 mt-3">
+        <label asp-for="EventName" class="form-label">Event Name</label>
+        <input asp-for="EventName" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Description" class="form-label">Description</label>
+        <input asp-for="Description" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="EventLocation" class="form-label">Event Location</label>
+        <input asp-for="EventLocation" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label asp-for="EventImage" class="form-label">Image URL</label>
+        <input asp-for="EventImage" class="form-control" />
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add</button>
+
+</form>
+
+ *@

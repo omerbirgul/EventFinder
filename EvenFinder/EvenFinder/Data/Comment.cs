@@ -1,4 +1,4 @@
-﻿namespace EvenFinder.Data
+﻿ namespace EvenFinder.Data
 {
     public class Comment
     {

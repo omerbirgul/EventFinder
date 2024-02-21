@@ -1,1 +1,10 @@
-﻿<h1>this is event ındex</h1>
+﻿@model List<Event>
+
+<h1>this is event ındex</h1>
+
+@foreach(var item in Model)
+{
+    <p>@item.EventName</p>
+}
+
+
