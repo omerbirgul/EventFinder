@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("EvenFinder")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4a04004e5136f6b56027728c636c4d2b03aa2efe")]
 [assembly: System.Reflection.AssemblyProductAttribute("EvenFinder")]
 [assembly: System.Reflection.AssemblyTitleAttribute("EvenFinder")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
