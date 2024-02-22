@@ -1,40 +1,55 @@
 ﻿@model Event
 
-
+<div class="row">
     <div class="col-lg-8">
-        <div class="bg-white p-4">
-            <h1 class="h4 mb-4">@Model.EventName</h1>
-            <img style="width:400px" class="img-fluid rounded" src="@Model.EventImage" />
-            <div>
-                <p>@Model.Description</p>
-                <p>@Model.EventLocation</p>
+        <div class="bg-white p-4 row">
+            <div class="col-8">
+                <img style="width:400px" class="img-fluid rounded" src="@Model.EventImage" />
             </div>
+            <div class="col-4">
+                <h1 class="h4 mb-4">@Model.EventName</h1>
+
+
+                <div>
+                    <p>@Model.Description</p>
+                    <p>@Model.EventLocation</p>
+                </div>
+            </div>
+            
         </div>
 
         <div class="bg-white mt-3">
             <div class="card border-0">
                 <div class="card-header">
-                    <h4 class="mr-3" style="display:inline-block" >yorum sayısı</h4> 
+                    <h4 id="commentCount"  style="display:inline-block" >@Model.Comments.Count() adet yorum.</h4>
                 </div>
                 <br />
                 <div class="card-body">
-                    <div class="my-4 d-flex">
-                        <img style="width:60px" class="avatar rounded-circle float-start me-3" src="https://i.tmgrup.com.tr/gq/original/17-06/22/user_male_circle_filled1600.png" />-
-                        <div>
-                            <div class="mb-2">
-                                <h6> yorum yapan kullanıcı adı</h6>
-                                <span>yorum tarihi</span>
+                    <div id="comments">
+                        @foreach(var comment in Model.Comments)
+                        {
+                            <div class="my-4 d-flex">
+                                <img style="width:60px" class="avatar rounded-circle float-start me-3" src="~/img/pp.jpg" />
+                                <div>
+                                    <div class="mb-2 d-flex">
+                                        <h6 class="CommentUserNameTitle">@comment.User.UserName</h6>
+                                        <small> @comment.PublishedOn.ToString("d")</small>
+                                    </div>
+                                    <p>@comment.Text</p>
+                                </div>
                             </div>
-                            <p>yapılan yorum</p>
-                        </div>
+                        }
                     </div>
+                
+                
 
 
                     <hr class="my-4" />
                     <div>
                         <h4>Yorum ekle</h4>
-                        <form asp-controller="Comment" asp-action="Create" method="post">
-                            <input type="hidden" name="EventId" value="@Model.EventId" />
+                        <form action="/event/AddComment" method="post">
+                            <input type="hidden" id="EventId" name="EventId" value="@Model.EventId" />
+                            <input type="hidden" name="id" value="@Model.EventId" />
                             <div class="col-md-12">
                                 <label for="UserName" class="form-label">UserName</label>
                                 <input type="text" name="UserName" id="UserName" class="form-control" />
@@ -46,10 +61,11 @@
                             </div>
 
                             <div class="col-md-12 mt-3">
-                                <button type="submit" class="btn btn-outline-success">Kaydet</button>
+                                <button id="btnComment" type="submit" class="btn btn-outline-success">Kaydet</button>
                             </div>
                         </form>
                     </div>
+                </div>
             </div>
         </div>
     </div>
@@ -57,3 +73,77 @@
 
     </div>
 </div>
+
+
+
+
+@* @section Scripts{
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function){
+            $(#btnComment).click(function){
+                $.ajax({
+                    type: 'Post',
+                    url: '@Url.Action("AddComment")',
+                    dataType: 'json',
+                    data: {
+                        EventId: #('#EventId').val(),
+                        UserName: #('#UserName').val(),
+                        Text: #('#Text').val()
+                    },
+                    success: function (yorum) {
+                        #
+                    }
+                });
+                return false;
+            });
+        });
+    </script>
+}  *@        
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            $("#btnComment").click(function () {
+                $.ajax({
+                    type: 'POST',
+                    url: '@Url.Action("AddComment")',
+                    dataType: 'json',
+                    data: {
+                        EventId: $('#EventId').val(),
+                        UserName: $('#UserName').val(),
+                        Text: $('#Text').val(),
+                    },
+                    success: function (yorum) {
+                        console.log(yorum);
+                        var date = new Date(yorum.publishedOn);
+
+                        $("#comments").append(`
+                                    <div class="my-4 d-flex">
+                                        <img src="/img/pp.jpg" alt="" class="avatar rounded-circle float-start me-3">
+                                        <div>
+                                            <div class="mb-2 d-flex">
+                                                <h6 class="me-2">${yorum.UserName}</h6>
+                                                <small>${yorum.publishedOn}</small>
+                                            </div>
+                                            <p>${yorum.Text}</p>
+                                        </div>
+                                    </div>
+                                `);
+
+                        $("#UserName").val('');
+                        $("#Text").val('');
+
+                        var adet = parseInt($("#commentCount").text());
+                        $("#commentCount").text(adet + 1);
+                    }
+                });
+
+                return false;
+            });
+
+        });
+    </script>
+}

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "zcHiz8D+rbUE9GAnCwgfyXpaRsIfChqZZ5p/xz+wuH0=",
+  "Hash": "iz8OzOafSGW5DoH7K76dD3NzYx29Lq7sCtU+Q9lKI84=",
   "Source": "EvenFinder",
   "BasePath": "_content/EvenFinder",
   "Mode": "Default",
@@ -110,6 +110,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\bootcamp.png"
+    },
+    {
+      "Identity": "C:\\Users\\ömer\\OneDrive\\Masaüstü\\GİTHUB\\EventFinder\\EvenFinder\\EvenFinder\\wwwroot\\img\\pp.jpg",
+      "SourceId": "EvenFinder",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\ömer\\OneDrive\\Masaüstü\\GİTHUB\\EventFinder\\EvenFinder\\EvenFinder\\wwwroot\\",
+      "BasePath": "_content/EvenFinder",
+      "RelativePath": "img/pp.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\pp.jpg"
     },
     {
       "Identity": "C:\\Users\\ömer\\OneDrive\\Masaüstü\\GİTHUB\\EventFinder\\EvenFinder\\EvenFinder\\wwwroot\\js\\site.js",

@@ -9,8 +9,8 @@ namespace EvenFinder.Controllers
     public class EventController : Controller
     {
 
-        private readonly ICommentRepository _commentRepository;
-        private readonly IEventRepository _eventRepository;
+        private ICommentRepository _commentRepository;
+        private IEventRepository _eventRepository;
         public EventController(IEventRepository eventRepository, ICommentRepository commentRepository)
         {
             _eventRepository = eventRepository;
@@ -57,22 +57,29 @@ namespace EvenFinder.Controllers
 
         public async Task<IActionResult> Details(int? id)
         {
-            return View(await _eventRepository.Events.FirstOrDefaultAsync(e => e.EventId == id));
+            return View(await _eventRepository.Events
+                .Include(x => x.Comments)
+                .ThenInclude(x => x.User)
+                .FirstOrDefaultAsync(e => e.EventId == id));
         }
 
 
-        public IActionResult CreateComment(int EventId, string UserName, string Text)
+        [HttpPost]
+        public IActionResult AddComment(int EventId, string UserName, string Text)
         {
             var entity = new Comment
             {
                 Text = Text,
                 PublishedOn = DateTime.Now,
                 EventId = EventId,
-                User = new User { UserName = UserName }
+                User = new User { UserName = UserName, Image="pp.jpg"}
             };
+
             _commentRepository.CreateComment(entity);
-            return View();
+            return RedirectToAction($"/event/details/{EventId}");
+
         }
+
     }
 }
 

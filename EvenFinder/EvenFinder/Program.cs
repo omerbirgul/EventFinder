@@ -2,6 +2,7 @@ using EvenFinder.Data;
 using EvenFinder.Data2.Abstract;
 using EvenFinder.Data2.Concrate;
 using EvenFinder.Data2.Concrate.EfCore;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -24,6 +25,8 @@ builder.Services.AddScoped<ICommentRepository, EfCommentRepository>();
 
 //************************************************
 
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie();
+
 var app = builder.Build();
 
 SeedData.TestVerileriniDoldur(app);
@@ -40,11 +43,18 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseAuthentication();
 app.UseAuthorization();
+
+app.UseRouting();
+
 
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+app.MapControllerRoute(
+    name: "Default",
+    pattern: "{controller=Event}/{action=Index}/{id?}");
 
 app.Run();
