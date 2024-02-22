@@ -20,6 +20,8 @@ namespace EvenFinder.Controllers
 
         public IActionResult Index()
         {
+
+            var claims = User.Claims;
             return View(_eventRepository.Events.ToList());
         }
 
