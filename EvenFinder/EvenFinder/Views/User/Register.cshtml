@@ -1,0 +1,45 @@
+﻿@model RegisterViewModel
+
+<div class="row mt-3">
+    <div class="col-12">
+        <div class="bg-white p-4">
+            <h1>Register</h1>
+            <form action="Register" method="post">
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="mb-3">
+                    <label asp-for="Name" class="form-label">Your Name:</label>
+                    <input asp-for="Name" class="form-control" />
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="LastName" class="form-label">Your Last Name:</label>
+                    <input asp-for="LastName" class="form-control" />
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Image" class="form-label">Your Image:</label>
+                    <input asp-for="Image" class="form-control" />
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Email" class="form-label">E-mail:</label>
+                    <input asp-for="Email" class="form-control" />
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Password" class="form-label">Password:</label>
+                    <input asp-for="Password" class="form-control" />
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="ConfirmPassword" class="form-label">Confirm Your Password</label>
+                    <input asp-for="ConfirmPassword" class="form-control" />
+                </div>
+
+                <button type="submit" class="btn btn-primary"> Register</button>
+
+            </form>
+        </div>
+
+    </div>
+</div>
