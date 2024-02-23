@@ -1,5 +1,6 @@
 ﻿using EvenFinder.Data;
 using EvenFinder.Data2.Abstract;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
@@ -26,6 +27,7 @@ namespace EvenFinder.Controllers
             return View(_eventRepository.Events.ToList());
         }
 
+        [Authorize]
         public IActionResult Create() 
         {
             return View();
@@ -33,6 +35,7 @@ namespace EvenFinder.Controllers
 
 
         [HttpPost]
+        [Authorize]
         public IActionResult Create(Event model)
         {
             //_context.Events.Add(model);
@@ -79,7 +82,7 @@ namespace EvenFinder.Controllers
                 Text = Text,
                 PublishedOn = DateTime.Now,
                 EventId = EventId,
-                //User = new User { UserName = userName, Image = avatar },
+   
                 UserId = int.Parse(userId ?? "")
             };
 
