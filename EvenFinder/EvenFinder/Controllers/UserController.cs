@@ -22,7 +22,7 @@ namespace EvenFinder.Controllers
         {
             if(User.Identity!.IsAuthenticated)
             {
-                return RedirectToAction("Index","Event");
+                return RedirectToAction("Index","Home");
             }
             return View();
         }
@@ -64,7 +64,7 @@ namespace EvenFinder.Controllers
                         authProperties
                         );
 
-                    return RedirectToAction("Index", "Event");
+                    return RedirectToAction("Index", "Home");
                 }
             }
             else

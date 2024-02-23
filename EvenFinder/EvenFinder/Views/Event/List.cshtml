@@ -2,7 +2,10 @@
 
 
 <h2 class="mt-3">Events List</h2>
-<a asp-controller="Event" asp-action="Create" class="btn btn-outline-success">Add</a>
+@if (User.Identity.IsAuthenticated)
+{
+<a asp-controller="Event" asp-action="Create" class="btn btn-outline-success">Add</a>    
+}
 <hr />
 
 <div class="row">
