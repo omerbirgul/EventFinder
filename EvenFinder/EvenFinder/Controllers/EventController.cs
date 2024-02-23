@@ -2,6 +2,7 @@
 using EvenFinder.Data2.Abstract;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
 
 
 namespace EvenFinder.Controllers
@@ -69,12 +70,17 @@ namespace EvenFinder.Controllers
         [HttpPost]
         public IActionResult AddComment(int EventId, string UserName, string Text)
         {
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var userName = User.FindFirstValue(ClaimTypes.Name);
+            var avatar = User.FindFirstValue(ClaimTypes.UserData);
+
             var entity = new Comment
             {
                 Text = Text,
                 PublishedOn = DateTime.Now,
                 EventId = EventId,
-                User = new User { UserName = UserName, Image="pp.jpg"}
+                User = new User { UserName = UserName, Image = "pp.jpg" },
+                UserId = int.Parse(userId ?? "")
             };
 
             _commentRepository.CreateComment(entity);

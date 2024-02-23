@@ -19,6 +19,10 @@ namespace EvenFinder.Controllers
 
         public ActionResult Login()
         {
+            if(User.Identity!.IsAuthenticated)
+            {
+                return RedirectToAction("Index","Event");
+            }
             return View();
         }
 
@@ -36,7 +40,7 @@ namespace EvenFinder.Controllers
                     userClaims.Add(new Claim(ClaimTypes.NameIdentifier, isUser.UserId.ToString())); 
                     userClaims.Add(new Claim(ClaimTypes.Name, isUser.UserName ?? ""));
                     userClaims.Add(new Claim(ClaimTypes.GivenName, isUser.Name ?? ""));
-
+                    userClaims.Add(new Claim(ClaimTypes.UserData, isUser.Image ?? ""));
 
                     if(isUser.Email == "info@omerbirgul.com")
                     {
@@ -66,6 +70,19 @@ namespace EvenFinder.Controllers
             {
                 ModelState.AddModelError("", "E-mail or Password is WRONG");
             }
+            return View();
+        }
+
+
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("Login");
+        }
+
+
+        public IActionResult Register()
+        {
             return View();
         }
     }

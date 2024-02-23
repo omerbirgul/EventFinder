@@ -41,30 +41,39 @@
                         }
                     </div>
                 
+                        <hr class="my-4" />
                 
+                    @if (User.Identity!.IsAuthenticated)
+                    {
+                        <div>
+                            <h4>Yorum ekle</h4>
+                            <form action="/event/AddComment" method="post">
+                                <input type="hidden" id="EventId" name="EventId" value="@Model.EventId" />
+                                <input type="hidden" name="id" value="@Model.EventId" />
+                                <div class="col-md-12">
+                                    <label for="UserName" class="form-label">UserName</label>
+                                    <input type="text" name="UserName" id="UserName" class="form-control" />
+                                </div>
 
+                                <div class="col-md-12">
+                                    <label for="Text" class="form-label">Yorum</label>
+                                    <textarea type="text" name="Text" id="Text" class="form-control" rows="3"> </textarea>
+                                </div>
 
-                    <hr class="my-4" />
-                    <div>
-                        <h4>Yorum ekle</h4>
-                        <form action="/event/AddComment" method="post">
-                            <input type="hidden" id="EventId" name="EventId" value="@Model.EventId" />
-                            <input type="hidden" name="id" value="@Model.EventId" />
-                            <div class="col-md-12">
-                                <label for="UserName" class="form-label">UserName</label>
-                                <input type="text" name="UserName" id="UserName" class="form-control" />
-                            </div>
+                                <div class="col-md-12 mt-3">
+                                    <button id="btnComment" type="submit" class="btn btn-outline-success">Kaydet</button>
+                                </div>
+                            </form>
+                        </div>
+                    }
+                    else
+                    {
+                        <p>
+                            Yorum yapmak için giriş yapmalısnız!
+                            <a class="btn btn-outline-warning" asp-controller="User" asp-action="Login"> Giriş yap</a>
+                        </p>
+                    }
 
-                            <div class="col-md-12">
-                                <label for="Text" class="form-label">Yorum</label>
-                                <textarea type="text" name="Text" id="Text" class="form-control" rows="3"> </textarea>
-                            </div>
-
-                            <div class="col-md-12 mt-3">
-                                <button id="btnComment" type="submit" class="btn btn-outline-success">Kaydet</button>
-                            </div>
-                        </form>
-                    </div>
                 </div>
             </div>
         </div>
