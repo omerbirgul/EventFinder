@@ -29,7 +29,7 @@
                         @foreach(var comment in Model.Comments)
                         {
                             <div class="my-4 d-flex">
-                                <img style="width:60px" class="avatar rounded-circle float-start me-3" src="~/img/pp.jpg" />
+                                <img style="width:60px" class="avatar rounded-circle float-start me-3" src="@comment.User.Image" />
                                 <div>
                                     <div class="mb-2 d-flex">
                                         <h6 class="CommentUserNameTitle">@comment.User.UserName</h6>
@@ -50,10 +50,6 @@
                             <form action="/event/AddComment" method="post">
                                 <input type="hidden" id="EventId" name="EventId" value="@Model.EventId" />
                                 <input type="hidden" name="id" value="@Model.EventId" />
-                                <div class="col-md-12">
-                                    <label for="UserName" class="form-label">UserName</label>
-                                    <input type="text" name="UserName" id="UserName" class="form-control" />
-                                </div>
 
                                 <div class="col-md-12">
                                     <label for="Text" class="form-label">Yorum</label>

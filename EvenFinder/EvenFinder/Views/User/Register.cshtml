@@ -4,7 +4,7 @@
     <div class="col-12">
         <div class="bg-white p-4">
             <h1>Register</h1>
-            <form action="Register" method="post">
+            <form action="Register" method="post" novalidate>
                 <div asp-validation-summary="All" class="text-danger"></div>
                 <div class="mb-3">
                     <label asp-for="Name" class="form-label">Your Name:</label>
@@ -13,7 +13,7 @@
 
                 <div class="mb-3">
                     <label asp-for="LastName" class="form-label">Your Last Name:</label>
-                    <input asp-for="LastName" class="form-control" />
+                    <input asp-for="LastName" class="form-control" /> 
                 </div>
 
                 <div class="mb-3">
@@ -24,6 +24,11 @@
                 <div class="mb-3">
                     <label asp-for="Email" class="form-label">E-mail:</label>
                     <input asp-for="Email" class="form-control" />
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="UserName" class="form-label">User Name:</label>
+                    <input asp-for="UserName" class="form-control" />
                 </div>
 
                 <div class="mb-3">

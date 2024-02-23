@@ -68,7 +68,7 @@ namespace EvenFinder.Controllers
 
 
         [HttpPost]
-        public IActionResult AddComment(int EventId, string UserName, string Text)
+        public IActionResult AddComment(int EventId,  string Text)
         {
             var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             var userName = User.FindFirstValue(ClaimTypes.Name);
@@ -79,7 +79,7 @@ namespace EvenFinder.Controllers
                 Text = Text,
                 PublishedOn = DateTime.Now,
                 EventId = EventId,
-                User = new User { UserName = UserName, Image = "pp.jpg" },
+                //User = new User { UserName = userName, Image = avatar },
                 UserId = int.Parse(userId ?? "")
             };
 

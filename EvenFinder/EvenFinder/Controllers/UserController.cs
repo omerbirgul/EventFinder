@@ -1,4 +1,5 @@
-﻿using EvenFinder.Data2.Abstract;
+﻿using EvenFinder.Data;
+using EvenFinder.Data2.Abstract;
 using EvenFinder.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -83,7 +84,43 @@ namespace EvenFinder.Controllers
 
         public IActionResult Register()
         {
+            if (User.Identity!.IsAuthenticated)
+            {
+                return RedirectToAction("Index", "Event");
+            }
             return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Register( RegisterViewModel model)
+        {
+            if(ModelState.IsValid)
+            {
+                var user = await _userRepository.Users
+                    .FirstOrDefaultAsync(x => x.UserName == model.UserName || x.Email == model.Email);
+                if(user == null)
+                {
+                    _userRepository.CreateUser(new User
+                    {
+                        Name = model.UserName,
+                        LastName = model.LastName,
+                        Email = model.Email,
+                        Password = model.Password,
+                        Image = model.Image,
+                        UserName = model.UserName,
+                    });
+
+                    return RedirectToAction("Login");
+
+                }
+                else
+                {
+                    ModelState.AddModelError("", "UserName or E-mail already used");
+                }
+                
+                return RedirectToAction("Login");
+            }
+            return View(model);
         }
     }
 }
