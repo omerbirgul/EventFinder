@@ -32,7 +32,7 @@ builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationSc
 
 var app = builder.Build();
 
-SeedData.TestVerileriniDoldur(app);
+//SeedData.TestVerileriniDoldur(app);
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

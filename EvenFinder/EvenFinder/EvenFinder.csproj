@@ -18,6 +18,7 @@
 
   <ItemGroup>
     <Folder Include="Views\Blog\" />
+    <Folder Include="wwwroot\img\" />
   </ItemGroup>
 
 </Project>

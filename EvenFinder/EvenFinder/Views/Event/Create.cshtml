@@ -6,6 +6,10 @@
         <label asp-for="EventName" class="form-label">Event Name</label>
         <input asp-for="EventName" class="form-control"/>
     </div>
+    <div class="mb-3 mt-3">
+        <label asp-for="EventDate" class="form-label">Event Date</label>
+        <input asp-for="EventDate" type="datetime-local" class="form-control" />
+    </div>
     <div class="mb-3">
         <label asp-for="Description" class="form-label">Description</label>
         <input asp-for="Description" class="form-control" />
@@ -16,7 +20,7 @@
     </div>
     <div class="mb-3">
         <label asp-for="EventImage" class="form-label">Image URL</label>
-        <input asp-for="EventImage" class="form-control" />
+        <input asp-for="EventImage" type="url" class="form-control" />
     </div>
     
         <button type="submit" class="btn btn-primary">Add</button>
