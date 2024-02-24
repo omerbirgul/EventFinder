@@ -23,6 +23,7 @@ builder.Services.AddDbContext<DataContext>(options =>
 builder.Services.AddScoped<IEventRepository, EfEventRepository>();
 builder.Services.AddScoped<ICommentRepository, EfCommentRepository>();
 builder.Services.AddScoped<IUserRepository, EfUserRepository>();
+builder.Services.AddScoped<IRegistrationRepository, EfRegistrationRepository>();
 
 //************************************************
 
