@@ -124,6 +124,14 @@ namespace EvenFinder.Controllers
         }
 
 
-
+        public async Task<IActionResult> Profile(int? id)
+        {
+            return View(await _userRepository.Users
+                .Include(x => x.Events)
+                .Include(x => x.Comments)
+                .ThenInclude(x => x.Event)
+                .FirstOrDefaultAsync(x => x.UserId == id)
+                );
+        }
     }
 }
