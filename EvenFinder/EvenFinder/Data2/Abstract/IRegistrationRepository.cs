@@ -1,12 +1,12 @@
-﻿//using EvenFinder.Data;
-//using EvenFinder.Models;
+﻿using EvenFinder.Data;
+using EvenFinder.Models;
 
-//namespace EvenFinder.Data2.Abstract
-//{
-//    public interface IRegistrationRepository
-//    {
-//        IQueryable<Registration> Registries { get; }
+namespace EvenFinder.Data2.Abstract
+{
+    public interface IRegistrationRepository
+    {
+        IQueryable<Registration> Registries { get; }
 
-//        void RegisterToEvent(Registration registration);
-//    }
-//}
+        void RegisterToEvent(Registration registration);
+    }
+}

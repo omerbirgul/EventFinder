@@ -12,10 +12,12 @@ namespace EvenFinder.Controllers
 
         private ICommentRepository _commentRepository;
         private IEventRepository _eventRepository;
-        public EventController(IEventRepository eventRepository, ICommentRepository commentRepository)
+        private IRegistrationRepository _registrationRepository;
+        public EventController(IEventRepository eventRepository, ICommentRepository commentRepository, IRegistrationRepository registrationRepository)
         {
             _eventRepository = eventRepository;
             _commentRepository = commentRepository;
+            _registrationRepository = registrationRepository;
         }
 
 
@@ -83,9 +85,29 @@ namespace EvenFinder.Controllers
             };
 
             _commentRepository.CreateComment(entity);
-            return RedirectToAction($"/event/details/{EventId}");
+            return Redirect($"/event/details/{EventId}");
 
         }
+
+        //[HttpPost]
+        //public IActionResult RegisterForEvent(int EventId)
+        //{
+        //    if(!User.Identity.IsAuthenticated)
+        //    {
+        //        return RedirectToAction("Login", "User");
+        //    }
+
+        //    var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+        //    var userName = User.FindFirstValue(ClaimTypes.Name);
+        //    var entity = new Registration
+        //    {
+        //        EventId = EventId,
+        //        UserId = int.Parse(userId ?? "")
+        //    };
+
+        //    _registrationRepository.RegisterToEvent(entity);
+        //    return Redirect($"/event/details/{EventId}");
+        //}
 
     }
 }

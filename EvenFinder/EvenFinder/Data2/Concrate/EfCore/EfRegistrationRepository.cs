@@ -11,11 +11,14 @@ namespace EvenFinder.Data2.Concrate.EfCore
             _context = context;
         }
 
-        public IQueryable<Registration> Registrations => _context.Registrations;
-        public void Register(Registration registration)
+
+        public IQueryable<Registration> Registries => _context.Registrations;
+
+
+
+        public void RegisterToEvent(Registration registration)
         {
-            _context.Registrations.Add(registration);
-            _context.SaveChanges();
+            throw new NotImplementedException();
         }
     }
 }

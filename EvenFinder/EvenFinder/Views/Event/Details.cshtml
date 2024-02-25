@@ -7,12 +7,12 @@
                 <img style="width:400px" class="img-fluid rounded" src="@Model.EventImage" />
             </div>
             <div class="col-4">
-                <h1 class="h4 mb-4">@Model.EventName</h1>
-
+                <h1 class="h4 mb-5 text-danger">@Model.EventName</h1>
 
                 <div>
                     <p>@Model.Description</p>
-                    <p>@Model.EventLocation</p>
+                    <p>Location: <b>@Model.EventLocation</b></p>
+                    <p>Date: <b>@Model.EventDate.ToString()</b> </p>
                 </div>
                 <form asp-action="RegisterForEvent" asp-controller="Event" method="post">
                     <input type="hidden" name="EventId" value="@Model.EventId" />

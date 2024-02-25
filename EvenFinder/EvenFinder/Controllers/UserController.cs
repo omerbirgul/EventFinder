@@ -102,7 +102,7 @@ namespace EvenFinder.Controllers
                 {
                     _userRepository.CreateUser(new User
                     {
-                        Name = model.UserName,
+                        Name = model.Name,
                         LastName = model.LastName,
                         Email = model.Email,
                         Password = model.Password,
