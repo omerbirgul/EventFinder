@@ -22,6 +22,11 @@ namespace EvenFinder.Controllers
             return View(await _context.Events.ToListAsync());
         }
 
+        //public ActionResult Index()
+        //{
+        //    return View();
+        //}
+
         public IActionResult Privacy()
         {
             return View();
