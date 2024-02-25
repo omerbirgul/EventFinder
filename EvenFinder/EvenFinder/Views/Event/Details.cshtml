@@ -38,7 +38,9 @@
                                             <img style="width:60px" class="avatar rounded-circle float-start me-3" src="@comment.User.Image" />
                                             <div>
                                                 <div class="mb-2 d-flex">
-                                                    <h6 class="CommentUserNameTitle">@comment.User.UserName</h6>
+                                                    <h6 class="CommentUserNameTitle">
+                                                    <a style="text-decoration:none" asp-controller="User" asp-action="Profile" asp-route-id="@comment.User.UserId" >@comment.User.UserName</a>
+                                                    </h6>
                                                     <small> @comment.PublishedOn.ToString("d")</small>
                                                 </div>
                                                 <p>@comment.Text</p>

@@ -32,7 +32,7 @@ namespace EvenFinder.Controllers
         [Authorize]
         public IActionResult Create() 
         {
-            if(User.Identity.IsAuthenticated)
+            if(User.Identity!.IsAuthenticated)
             {
             return View();
             }

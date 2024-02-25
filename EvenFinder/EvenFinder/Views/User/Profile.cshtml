@@ -1,0 +1,24 @@
+﻿@model User
+
+<div class="row">
+    <div class="col-md-2">
+        <div class="bg-white p-4">
+            <img src="@Model.Image" class="img-fluid" />
+        </div>
+    </div>
+
+    <div class="col-md-10">
+        <div class="bg-white p-4">
+            <h5>@Model.Name @Model.LastName</h5>
+            <hr />
+            <div id="usersComment">
+                <h5 style="display:inline-block"
+                    onmouseover="this.style.backgroundColor='#212529'; this.style.color='White';"
+                    class="my-4"
+                    onmouseout="this.style.backgroundColor='White'; this.style.color='#212529';">
+                    @Model.UserName's comments:
+                </h5>
+            </div>
+        </div>
+    </div>
+</div>
