@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EvenFinder.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20240224113329_RegistirationUpdate")]
-    partial class RegistirationUpdate
+    [Migration("20240225193023_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

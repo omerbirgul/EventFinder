@@ -1,12 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Controllers",
-    "\\Data",
     "\\Views",
     "\\Views\\Event",
     "\\Views\\Shared"
   ],
-  "SelectedNode": "\\Views\\_ViewImports.cshtml",
+  "SelectedNode": "\\Controllers",
   "PreviewInSolutionExplorer": false
 }

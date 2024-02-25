@@ -14,6 +14,10 @@
                     <p>@Model.Description</p>
                     <p>@Model.EventLocation</p>
                 </div>
+                <form asp-action="RegisterForEvent" asp-controller="Event" method="post">
+                    <input type="hidden" name="EventId" value="@Model.EventId" />
+                    <button class="btn btn-primary">Register Now!</button>
+                </form>
             </div>
             
         </div>
