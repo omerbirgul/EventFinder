@@ -18,6 +18,13 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
-  background-color: whitesmoke;
+    margin-bottom: 60px;
+    background-color: whitesmoke;
+    font-family: sans-serif;
+    height: 100vh;
+    background-size: cover;
+    background-position:center;
+    background-color: whitesmoke
 }
+
+

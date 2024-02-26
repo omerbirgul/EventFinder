@@ -18,7 +18,8 @@ namespace EvenFinder.Data2.Concrate.EfCore
 
         public void RegisterToEvent(Registration registration)
         {
-            throw new NotImplementedException();
+            _context.Registrations.Add(registration);
+            _context.SaveChanges();
         }
     }
 }

@@ -2,8 +2,22 @@
 @model IEnumerable<Event>
 
 <div class="row">
-    <div class="col-2 mt-5">
-        kategoriler
+    <div style="height:100vh;" id="categories" class="col-2 mt-5 sticky-top">
+        <h4>Categories:</h4>
+        <ul class="nav flex-column list-group">
+            <li class="nav-item list-group-item">
+                <a class="nav-link active" href="#">Tech</a>
+            </li>
+            <li class="nav-item list-group-item">
+                <a class="nav-link" href="#">Concert</a>
+            </li>
+            <li class="nav-item list-group-item">
+                <a class="nav-link" href="#">Competions</a>
+            </li>
+            <li class="nav-item list-group-item">
+                <a class="nav-link" href="#">Coffe Talk</a>
+            </li>
+        </ul>
     </div>
     <div class="col-8 mt-5">
         <div class="row">
@@ -14,16 +28,30 @@
                         <img class="card-img-top" style="width:100%; height:100%;" src="@item.EventImage" alt="Card image cap">
                             <div class="card-body">
                                 <h5 style="display:inline" class="card-title">@item.EventName (@item.EventLocation)</h5>
-                                <p class="card-text">@item.Description</p>
-                                <a asp-controller="Event" asp-action="Details" asp-route-id="@item.EventId" class="btn btn-primary">Detaylar ve Başvuru</a>
+                            <p class="card-text">Date: <b>@item.EventDate</b></p>
+                                <a asp-controller="Event" asp-action="Details" asp-route-id="@item.EventId" class="btn btn-primary">Details</a>
                             </div>
                         </div>
                     </div>
                 }
         </div>
     </div>
-    <div class="col-2 mt-5">
-        blog
+    <div style="height:100vh;" class="col-2 mt-5 sticky-top">
+        <h4>Questions and Answers</h4>
+        <ul class="nav flex-column list-group">
+            <li class="nav-item list-group-item">
+                <a class="nav-link active" href="#">Question1</a>
+            </li>
+            <li class="nav-item list-group-item">
+                <a class="nav-link" href="#">Question2</a>
+            </li>
+            <li class="nav-item list-group-item">
+                <a class="nav-link" href="#">Question3</a>
+            </li>
+            <li class="nav-item list-group-item">
+                <a class="nav-link" href="#">Question4</a>
+            </li>
+        </ul>
     </div>
 </div>
 

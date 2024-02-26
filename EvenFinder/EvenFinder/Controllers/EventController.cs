@@ -99,25 +99,41 @@ namespace EvenFinder.Controllers
 
         }
 
-        //[HttpPost]
-        //public IActionResult RegisterForEvent(int EventId)
-        //{
-        //    if(!User.Identity.IsAuthenticated)
-        //    {
-        //        return RedirectToAction("Login", "User");
-        //    }
 
-        //    var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-        //    var userName = User.FindFirstValue(ClaimTypes.Name);
-        //    var entity = new Registration
-        //    {
-        //        EventId = EventId,
-        //        UserId = int.Parse(userId ?? "")
-        //    };
 
-        //    _registrationRepository.RegisterToEvent(entity);
-        //    return Redirect($"/event/details/{EventId}");
-        //}
+        [HttpPost]
+        public IActionResult RegisterForEvent( int id)
+        {
+            if(User.Identity!.IsAuthenticated)
+            {
+                var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+                var entity = new Registration
+                {
+                    EventId = id,
+                    RegisterTime = DateTime.Now,
+                    UserId = int.Parse(userId ?? "")
+                };
+                _registrationRepository.RegisterToEvent(entity);
+
+
+
+                //var user = _registrationRepository.Registries
+                //    .Include(x => x.User).ThenInclude(x => x.UserId)
+                //    .Include(x => x.Event).ThenInclude(x => x.EventId)
+                //    .FirstOrDefault(x => x.EventId == id);
+
+                //_registrationRepository.RegisterToEvent(new Registration
+                //{
+                //    UserId = model.User.UserId,
+                //    EventId = model.EventId,
+                //    RegisterTime = DateTime.Now
+                //});
+
+                return RedirectToAction("List", "Event");
+            }
+            return RedirectToAction("Login", "User");
+        }
 
     }
 }

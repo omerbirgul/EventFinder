@@ -14,8 +14,8 @@
                     <p>Location: <b>@Model.EventLocation</b></p>
                     <p><i class="bi bi-calendar"> Date:</i> <b>@Model.EventDate.ToString()</b> </p>
                 </div>
-                <form asp-action="RegisterForEvent" asp-controller="Event" method="post">
-                    <input type="hidden" name="EventId" value="@Model.EventId" />
+                <form action="RegisterForEvent" method="post">
+                    <input type="hidden" asp-for="EventName"/>
                     <button class="btn btn-primary">Register Now!</button>
                 </form>
             </div>
