@@ -22,7 +22,7 @@ namespace EvenFinder.Models
         public string? UserName { get; set; }
 
         [Required]
-        [Display(Name = "Name")]
+        [Display(Name = "Email")]
         [EmailAddress]
         public string? Email { get; set; }
 

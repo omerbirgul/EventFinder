@@ -14,7 +14,7 @@
                     <p>Location: <b>@Model.EventLocation</b></p>
                     <p><i class="bi bi-calendar"> Date:</i> <b>@Model.EventDate.ToString()</b> </p>
                 </div>
-                <form action="RegisterForEvent" method="post">
+                <form action="/event/RegisterForEvent" method="post">
                     <input type="hidden" asp-for="EventName"/>
                     <button class="btn btn-primary">Register Now!</button>
                 </form>
@@ -25,7 +25,7 @@
         <div class="bg-white mt-3">
             <div class="card border-0">
                 <div class="card-header">
-                    <h4 id="commentCount"  style="display:inline-block" >@Model.Comments.Count() adet yorum.</h4>
+                    <h4 id="commentCount"  style="display:inline-block" >@Model.Comments.Count() comment</h4>
                 </div>
                 <br />
                 <div class="card-body">
@@ -76,8 +76,9 @@
                     else
                     {
                         <p>
-                            Yorum yapmak için giriş yapmalısnız!
-                            <a class="btn btn-outline-warning" asp-controller="User" asp-action="Login"> Giriş yap</a>
+
+                            You must log in to comment!
+                            <a class="btn btn-outline-warning" asp-controller="User" asp-action="Login">Login</a>
                         </p>
                     }
 

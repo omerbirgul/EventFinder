@@ -27,4 +27,14 @@ body {
     background-color: whitesmoke
 }
 
+#categories {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 10vh;
+}
 
+#questions {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 10vh;
+}
