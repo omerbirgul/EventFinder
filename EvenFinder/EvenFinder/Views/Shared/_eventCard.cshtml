@@ -5,7 +5,7 @@
     <div  class="card h-100">
         <img class="card-img-top" style="width:304px; height:200px;" src="@Model.EventImage" alt="Card image cap">
         <div class="card-body">
-            <h5 style="display:inline" class="card-title">@Model.EventName (@Model.EventLocation)</h5>
+            <h5 style="display:inline" class="card-title"><b>@Model.EventName</b>  (@Model.EventLocation)</h5>
             <p class="card-text">Date: <b>@Model.EventDate</b> </p>
             <a asp-controller="Event" asp-action="Details" asp-route-id="@Model.EventId" class="btn btn-primary">Details and Applications</a>
         </div>
