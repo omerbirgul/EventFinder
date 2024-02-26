@@ -50,8 +50,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/ömer/OneDrive/Masaüstü/GİTHUB/EventFinder/EvenFinder/EvenFinder/Views/Shared/_categories.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9jYXRlZ29yaWVzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/ömer/OneDrive/Masaüstü/GİTHUB/EventFinder/EvenFinder/EvenFinder/Views/Shared/_eventCard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9ldmVudENhcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/ömer/OneDrive/Masaüstü/GİTHUB/EventFinder/EvenFinder/EvenFinder/Views/Shared/_questions.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9xdWVzdGlvbnMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/ömer/OneDrive/Masaüstü/GİTHUB/EventFinder/EvenFinder/EvenFinder/Views/Shared/_ValidationScriptsPartial.cshtml]
