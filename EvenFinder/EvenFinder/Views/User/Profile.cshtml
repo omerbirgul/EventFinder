@@ -1,9 +1,10 @@
 ﻿@model User
 
-<div class="row">
+<div class="row mt-3">
     <div class="col-md-2">
-        <div class="bg-white p-4">
-            <img src="@Model.Image" class="img-fluid" />
+        <div  class="bg-white p-4">
+            <img src="@Model.Image"
+            class="img-fluid"/>
         </div>
     </div>
 
@@ -18,7 +19,21 @@
                     onmouseout="this.style.backgroundColor='White'; this.style.color='#212529';">
                     @Model.UserName's comments:
                 </h5>
+
+                <ul class="list-group">
+                    @foreach(var comment in Model.Comments)
+                    {
+                        <li class="list-group-item list-group-item-action">
+                            <i class="bi bi-caret-right-fill"></i>
+                            <a style="text-decoration:none" asp-controller="Event" asp-action="Details" asp-route-id="@comment.Event.EventId">@comment.Text</a>
+                        </li>
+                    }
+                </ul>
+
+
             </div>
         </div>
     </div>
 </div>
+
+
