@@ -520,3 +520,4 @@ C:\Users\ömer\OneDrive\Masaüstü\Yeni klasör\EventFinder\EvenFinder\EvenFinde
 C:\Users\ömer\OneDrive\Masaüstü\Yeni klasör\EventFinder\EvenFinder\EvenFinder\obj\Debug\net7.0\EvenFinder.pdb
 C:\Users\ömer\OneDrive\Masaüstü\Yeni klasör\EventFinder\EvenFinder\EvenFinder\obj\Debug\net7.0\EvenFinder.genruntimeconfig.cache
 C:\Users\ömer\OneDrive\Masaüstü\Yeni klasör\EventFinder\EvenFinder\EvenFinder\obj\Debug\net7.0\ref\EvenFinder.dll
+C:\Users\ömer\OneDrive\Masaüstü\GİTHUB\EventFinder\EvenFinder\EvenFinder\bin\Debug\net7.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
